@@ -21,7 +21,7 @@
     --section-px:clamp(1.25rem,5vw,5rem);
     --max-w:1200px;
   }
-
+ 
   /* ── RESET ── */
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -30,7 +30,7 @@
   ::-webkit-scrollbar-track{background:var(--bg)}
   ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
   body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}
-
+ 
   /* ── NAV ── */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:200;
@@ -64,14 +64,14 @@
   .nav-links a:hover{color:var(--text)}
   .nav-links a:hover::after,.nav-links a.active::after{width:100%}
   .nav-links a.active{color:var(--text)}
-
+ 
   /* ── HAMBURGER ── */
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;z-index:210}
   .hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
   .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
   .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
+ 
   /* ── MOBILE MENU ── */
   .mobile-menu{
     display:none;position:fixed;inset:0;z-index:190;
@@ -83,14 +83,14 @@
   .mobile-menu.open{opacity:1;pointer-events:all}
   .mobile-menu a{font-family:var(--display);font-size:clamp(1.6rem,6vw,2.5rem);font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-.02em;transition:color .2s}
   .mobile-menu a:hover{color:var(--accent)}
-
+ 
   /* ── SECTION WRAPPER ── */
   section{padding:clamp(3.5rem,8vw,6rem) var(--section-px);position:relative;z-index:1}
   .section-inner{max-width:var(--max-w);margin:0 auto;width:100%}
   .section-label{font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.85rem;display:flex;align-items:center;gap:.75rem}
   .section-label::before{content:'';width:28px;height:1px;background:var(--accent);flex-shrink:0}
   .section-title{font-family:var(--display);font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:clamp(2rem,5vw,3.5rem);line-height:1.1}
-
+ 
   /* ── HERO ── */
   #hero{
     min-height:100vh;min-height:100svh;
@@ -146,7 +146,7 @@
     opacity:0;animation:fadeUp 1s ease forwards 1.2s;
   }
   .scroll-line{width:1px;height:45px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2s ease-in-out infinite}
-
+ 
   /* ── BUTTONS ── */
   .btn{
     font-family:var(--mono);font-size:clamp(.68rem,1.4vw,.8rem);
@@ -160,7 +160,7 @@
   .btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
   .btn-secondary:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
   .btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
-
+ 
   /* ── ABOUT ── */
   #about{background:var(--bg2)}
   .about-grid{
@@ -191,7 +191,7 @@
   .about-text p strong{color:var(--text);font-weight:500}
   .about-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
   .badge{font-family:var(--mono);font-size:.65rem;letter-spacing:.04em;padding:.28rem .75rem;background:rgba(79,142,255,.07);border:1px solid var(--border);border-radius:100px;color:var(--accent)}
-
+ 
   /* ── SKILLS ── */
   .skills-categories{
     display:grid;
@@ -207,7 +207,7 @@
   .skill-bar-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.67rem;color:var(--muted);margin-bottom:.35rem}
   .skill-bar-track{height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
   .skill-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
-
+ 
   /* ── PROJECTS ── */
   #projects{background:var(--bg2)}
   .projects-grid{
@@ -229,7 +229,7 @@
   .project-desc{font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:1.1rem}
   .project-tags{display:flex;flex-wrap:wrap;gap:.4rem}
   .project-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;padding:.22rem .6rem;background:rgba(79,142,255,.07);border:1px solid rgba(79,142,255,.18);border-radius:3px;color:var(--accent)}
-
+ 
   /* ── CONTACT ── */
   .contact-grid{
     display:grid;
@@ -248,7 +248,7 @@
   .contact-link-arrow{margin-left:auto;color:var(--muted);font-size:1rem;transition:all .25s;flex-shrink:0}
   .contact-link:hover .contact-link-arrow{color:var(--accent);transform:translateX(3px)}
   .contact-cta{display:flex;gap:.85rem;flex-wrap:wrap}
-
+ 
   /* ── FORM ── */
   .contact-form-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:clamp(1.5rem,3.5vw,2.5rem);backdrop-filter:blur(10px)}
   .form-title{font-family:var(--display);font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text)}
@@ -271,7 +271,7 @@
   .ai-reply-label::before{content:'✦';font-size:.6rem}
   .ai-reply-text{font-size:.87rem;color:var(--muted);line-height:1.78}
   .spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:4px}
-
+ 
   /* ── FOOTER ── */
   footer{
     border-top:1px solid var(--border);
@@ -282,7 +282,7 @@
   .footer-inner{width:100%;max-width:var(--max-w);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
   .footer-left,.footer-right{font-family:var(--mono);font-size:.67rem;color:var(--muted)}
   .footer-right span{color:var(--accent)}
-
+ 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
   @keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
@@ -296,17 +296,17 @@
   .stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.3s}
   .stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.4s}
   .stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.5s}
-
+ 
   /* ═══════════════════════════════════
      RESPONSIVE BREAKPOINTS
   ═══════════════════════════════════ */
-
+ 
   /* Large desktop 1280–1440px: 4 col skills, 4 col projects */
   @media(max-width:1280px){
     .skills-categories{grid-template-columns:repeat(2,1fr)}
     .projects-grid{grid-template-columns:repeat(2,1fr)}
   }
-
+ 
   /* Tablet landscape 1024px */
   @media(max-width:1024px){
     .about-grid{grid-template-columns:1fr;gap:2.5rem}
@@ -315,7 +315,7 @@
     .skills-categories{grid-template-columns:repeat(2,1fr)}
     .projects-grid{grid-template-columns:repeat(2,1fr)}
   }
-
+ 
   /* Tablet portrait 768px */
   @media(max-width:768px){
     .nav-links{display:none}
@@ -326,7 +326,7 @@
     .projects-grid{grid-template-columns:1fr}
     footer .footer-inner{justify-content:center;text-align:center}
   }
-
+ 
   /* Mobile 600px */
   @media(max-width:600px){
     .skills-categories{grid-template-columns:1fr}
@@ -334,7 +334,7 @@
     .about-avatar-wrapper{justify-content:flex-start}
     .avatar-box{width:120px;height:130px}
   }
-
+ 
   /* Small mobile 480px */
   @media(max-width:480px){
     :root{--section-px:1.1rem}
@@ -347,7 +347,7 @@
     .form-group input,.form-group textarea,.form-group select{font-size:16px}
     .hero-name{font-size:clamp(2.2rem,11vw,3.5rem)}
   }
-
+ 
   /* Landscape phone */
   @media(max-height:500px) and (orientation:landscape){
     #hero{min-height:auto;padding-top:calc(var(--nav-h) + 1rem)}
@@ -356,7 +356,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMobile()">About</a>
@@ -364,7 +364,7 @@
   <a href="#projects" onclick="closeMobile()">Projects</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
-
+ 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -380,7 +380,7 @@
     </button>
   </div>
 </nav>
-
+ 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
@@ -403,7 +403,7 @@
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
 </section>
-
+ 
 <!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
@@ -432,7 +432,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
@@ -474,7 +474,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
@@ -517,17 +517,36 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-card-top"><div class="project-icon"></div><div class="project-links"></div></div>
+        <div class="project-card-top">
+          <div class="project-icon"></div>
+          <div class="project-links">
+            <a href="https://github.com/Praveentheoplus/cicd-project" target="_blank" rel="noopener" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+          </div>
+        </div>
         <div class="project-body">
-          <div class="project-title">Java Chatbot</div>
-          <div class="project-desc">Basic chatbot built in Java for handling simple user interactions. Demonstrates logic building, input processing, and conversational flow.</div>
-          <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Logic Building</span><span class="project-tag">CLI</span></div>
+          <div class="project-title">DevOps CI/CD Pipeline</div>
+          <div class="project-desc">Fully automated deployment pipeline. Code pushed to GitHub triggers Jenkins to install dependencies, run tests, build a Docker image and deploy automatically.</div>
+          <div class="project-tags"><span class="project-tag">Node.js</span><span class="project-tag">Jenkins</span><span class="project-tag">Docker</span><span class="project-tag">GitHub Actions</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-top">
+          <div class="project-icon"></div>
+          <div class="project-links">
+            <a href="https://cloud-storage-app-production-bf80.up.railway.app/" target="_blank" rel="noopener" class="project-link-btn" title="Live Demo">↗</a>
+            <a href="https://github.com/Praveentheoplus/cloud-storage-app" target="_blank" rel="noopener" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Cloud File Storage System</div>
+          <div class="project-desc">Full-stack cloud storage app with Google &amp; Email login, file upload/download/preview, search &amp; filter, drag &amp; drop, and user-specific storage. Live 24/7.</div>
+          <div class="project-tags"><span class="project-tag">Node.js</span><span class="project-tag">Firebase Auth</span><span class="project-tag">Cloudinary</span><span class="project-tag">Railway</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
@@ -558,7 +577,7 @@
           <a href="https://github.com/Praveentheoplus" target="_blank" rel="noopener" class="btn btn-secondary">View GitHub</a>
         </div>
       </div>
-
+ 
       <!-- AI Contact Form -->
       <div class="contact-form-wrap">
         <div class="form-title">Send a Message</div>
@@ -595,7 +614,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -603,7 +622,7 @@
     <div class="footer-right">Built with <span>♥</span> by Praveen T</div>
   </div>
 </footer>
-
+ 
 <script>
 /* ── MOBILE MENU ── */
 const hamburger = document.getElementById('hamburger');
@@ -618,7 +637,7 @@ function closeMobile() {
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
 }
-
+ 
 /* ── SCROLL REVEAL ── */
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -629,7 +648,7 @@ const revealObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal, .stagger').forEach(el => revealObserver.observe(el));
-
+ 
 /* Individual skill bars */
 document.querySelectorAll('.skill-bar-fill').forEach(bar => {
   const p = bar.closest('.skill-category');
@@ -637,7 +656,7 @@ document.querySelectorAll('.skill-bar-fill').forEach(bar => {
   const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { bar.style.width = bar.dataset.width + '%'; io.disconnect(); } }, { threshold: 0.2 });
   io.observe(p);
 });
-
+ 
 /* ── ACTIVE NAV ── */
 const navLinks = document.querySelectorAll('.nav-links a');
 const navObs = new IntersectionObserver(entries => {
@@ -650,12 +669,12 @@ const navObs = new IntersectionObserver(entries => {
   });
 }, { rootMargin: '-40% 0px -55% 0px' });
 document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
-
+ 
 /* ── AI CONTACT FORM ── */
 /* ── IMPORTANT: Replace this URL with your actual Render backend URL after deploying ──
    Example: const BACKEND_URL = 'https://praveen-contact-backend.onrender.com';        */
 const BACKEND_URL = 'https://praveen-contact-backend.onrender.com';
-
+ 
 async function handleFormSubmit() {
   const name    = document.getElementById('fname').value.trim();
   const email   = document.getElementById('femail').value.trim();
@@ -664,7 +683,7 @@ async function handleFormSubmit() {
   const btn     = document.getElementById('formSubmitBtn');
   const status  = document.getElementById('formStatus');
   const aiBox   = document.getElementById('aiReply');
-
+ 
   // Validate
   if (!name || !email || !message) {
     status.className = 'form-status error';
@@ -676,26 +695,26 @@ async function handleFormSubmit() {
     status.textContent = '⚠ Please enter a valid email address.';
     return;
   }
-
+ 
   const reasonMap = { job:'Job / Internship Opportunity', freelance:'Freelance Project', collab:'Collaboration', feedback:'Project Feedback', other:'Other' };
   const reason = reasonMap[type] || 'General Inquiry';
-
+ 
   // Loading state
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Sending...';
   status.className = 'form-status loading';
   status.textContent = '✦ Sending your message...';
   aiBox.classList.remove('visible');
-
+ 
   try {
     const res = await fetch(`${BACKEND_URL}/contact`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, reason, message }),
     });
-
+ 
     const data = await res.json();
-
+ 
     if (res.ok && data.success) {
       status.className = 'form-status success';
       status.textContent = `✓ Message sent! A confirmation email has been sent to ${email}.`;
@@ -711,7 +730,7 @@ async function handleFormSubmit() {
     status.className = 'form-status error';
     status.textContent = `✗ ${err.message || 'Something went wrong. Please email directly at praveensofficial7@gmail.com'}`;
   }
-
+ 
   btn.disabled = false;
   btn.innerHTML = 'Send Another →';
   btn.onclick = () => {
