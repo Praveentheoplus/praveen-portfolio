@@ -49,8 +49,7 @@
     font-family:var(--mono);font-size:.95rem;
     color:var(--accent) !important;
     letter-spacing:.05em;text-decoration:none;
-    flex-shrink:0;
-    display:block;
+    flex-shrink:0;display:block;
     -webkit-text-fill-color:var(--accent);
   }
   .nav-logo span{color:var(--text);-webkit-text-fill-color:var(--text)}
@@ -122,8 +121,7 @@
     display:block;
     background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);
     -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;
-    color:var(--accent);/* fallback */
+    -webkit-text-fill-color:transparent;color:var(--accent);
   }
   .hero-role{
     font-family:var(--mono);font-size:clamp(.68rem,1.6vw,.88rem);
@@ -192,21 +190,95 @@
   .about-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
   .badge{font-family:var(--mono);font-size:.65rem;letter-spacing:.04em;padding:.28rem .75rem;background:rgba(79,142,255,.07);border:1px solid var(--border);border-radius:100px;color:var(--accent)}
  
-  /* ── SKILLS ── */
-  .skills-categories{
+  /* ══════════════════════════════════
+     EXPERIENCE SECTION
+  ══════════════════════════════════ */
+  #experience{background:var(--bg)}
+  .exp-timeline{display:flex;flex-direction:column;gap:0;position:relative}
+  .exp-timeline::before{
+    content:'';position:absolute;left:18px;top:8px;bottom:8px;
+    width:1px;background:linear-gradient(to bottom,var(--accent),rgba(79,142,255,.1));
+  }
+  .exp-item{
+    display:grid;
+    grid-template-columns:38px 1fr;
+    gap:clamp(1.2rem,3vw,2rem);
+    padding-bottom:clamp(1.8rem,4vw,2.8rem);
+    position:relative;
+  }
+  .exp-item:last-child{padding-bottom:0}
+  .exp-dot-col{display:flex;flex-direction:column;align-items:center;padding-top:6px}
+  .exp-dot{
+    width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--accent);
+    flex-shrink:0;position:relative;z-index:1;
+    box-shadow:0 0 12px rgba(79,142,255,.35);
+    transition:all .3s;
+  }
+  .exp-item:hover .exp-dot{background:var(--accent);box-shadow:0 0 20px rgba(79,142,255,.6)}
+  .exp-card{
+    background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:clamp(1.25rem,2.5vw,1.75rem);
+    transition:border-color .3s,transform .3s;
+    backdrop-filter:blur(10px);
+  }
+  .exp-card:hover{border-color:rgba(79,142,255,.4);transform:translateX(4px)}
+  .exp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem}
+  .exp-role{font-family:var(--display);font-size:clamp(1rem,1.8vw,1.15rem);font-weight:700;color:var(--text)}
+  .exp-period{
+    font-family:var(--mono);font-size:.65rem;letter-spacing:.06em;
+    color:var(--accent);padding:.22rem .65rem;
+    background:rgba(79,142,255,.08);border:1px solid rgba(79,142,255,.2);
+    border-radius:100px;white-space:nowrap;flex-shrink:0;
+  }
+  .exp-company{
+    font-family:var(--mono);font-size:.72rem;color:var(--muted);
+    letter-spacing:.04em;margin-bottom:.9rem;
+    display:flex;align-items:center;gap:.5rem;
+  }
+  .exp-company::before{content:'@';color:var(--accent);font-size:.8rem}
+  .exp-desc{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1rem}
+  .exp-desc strong{color:var(--text);font-weight:500}
+  .exp-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+  .exp-tag{
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;
+    padding:.22rem .6rem;background:rgba(124,58,237,.07);
+    border:1px solid rgba(124,58,237,.2);border-radius:3px;color:#a78bfa;
+  }
+ 
+  /* ══════════════════════════════════
+     SKILLS — BADGE / CARD LAYOUT
+  ══════════════════════════════════ */
+  .skills-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:1.25rem;
   }
-  .skill-category{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:clamp(1.2rem,2.5vw,2rem);transition:border-color .3s,transform .3s;backdrop-filter:blur(10px)}
+  .skill-category{
+    background:var(--card);border:1px solid var(--border);border-radius:10px;
+    padding:clamp(1.2rem,2.5vw,1.75rem);
+    transition:border-color .3s,transform .3s;
+    backdrop-filter:blur(10px);
+  }
   .skill-category:hover{border-color:rgba(79,142,255,.4);transform:translateY(-4px)}
-  .skill-cat-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem}
+  .skill-cat-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
   .skill-cat-icon{width:36px;height:36px;background:rgba(79,142,255,.1);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
-  .skill-cat-name{font-family:var(--display);font-size:.88rem;font-weight:700;color:var(--text)}
-  .skill-bars{display:flex;flex-direction:column;gap:.85rem}
-  .skill-bar-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.67rem;color:var(--muted);margin-bottom:.35rem}
-  .skill-bar-track{height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
-  .skill-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+  .skill-cat-name{font-family:var(--display);font-size:.9rem;font-weight:700;color:var(--text)}
+  .skill-badges{display:flex;flex-direction:column;gap:.55rem}
+  .skill-badge{
+    display:flex;align-items:center;justify-content:space-between;
+    background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+    border-radius:6px;padding:.48rem .8rem;
+    transition:border-color .2s,background .2s;cursor:default;
+  }
+  .skill-badge:hover{border-color:rgba(79,142,255,.3);background:rgba(79,142,255,.05)}
+  .skill-badge-name{font-family:var(--mono);font-size:.67rem;color:var(--text);letter-spacing:.03em}
+  .skill-level{display:flex;gap:3px}
+  .skill-pip{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.1);transition:background .2s}
+  .skill-pip.filled{background:var(--accent)}
+  .skill-pip.filled.high{background:linear-gradient(135deg,var(--accent),var(--accent2))}
+  /* Hovering category highlights pips */
+  .skill-category:hover .skill-pip.filled{box-shadow:0 0 6px rgba(79,142,255,.5)}
  
   /* ── PROJECTS ── */
   #projects{background:var(--bg2)}
@@ -265,11 +337,6 @@
   .form-status.success{display:block;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);color:#4ade80}
   .form-status.error{display:block;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);color:#f87171}
   .form-status.loading{display:block;background:rgba(79,142,255,.07);border:1px solid var(--border);color:var(--muted)}
-  .ai-reply{margin-top:1rem;padding:1rem 1.1rem;background:rgba(79,142,255,.05);border:1px solid rgba(79,142,255,.2);border-radius:8px;display:none}
-  .ai-reply.visible{display:block}
-  .ai-reply-label{font-family:var(--mono);font-size:.62rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
-  .ai-reply-label::before{content:'✦';font-size:.6rem}
-  .ai-reply-text{font-size:.87rem;color:var(--muted);line-height:1.78}
   .spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:4px}
  
   /* ── FOOTER ── */
@@ -296,46 +363,44 @@
   .stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.3s}
   .stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.4s}
   .stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.5s}
+  /* Timeline stagger — slide in from left */
+  .exp-stagger .exp-item{opacity:0;transform:translateX(-18px);transition:opacity .6s ease,transform .6s ease}
+  .exp-stagger.visible .exp-item:nth-child(1){opacity:1;transform:none;transition-delay:0s}
+  .exp-stagger.visible .exp-item:nth-child(2){opacity:1;transform:none;transition-delay:.18s}
+  .exp-stagger.visible .exp-item:nth-child(3){opacity:1;transform:none;transition-delay:.36s}
  
   /* ═══════════════════════════════════
      RESPONSIVE BREAKPOINTS
   ═══════════════════════════════════ */
- 
-  /* Large desktop 1280–1440px: 4 col skills, 4 col projects */
   @media(max-width:1280px){
-    .skills-categories{grid-template-columns:repeat(2,1fr)}
+    .skills-grid{grid-template-columns:repeat(2,1fr)}
     .projects-grid{grid-template-columns:repeat(2,1fr)}
   }
- 
-  /* Tablet landscape 1024px */
   @media(max-width:1024px){
     .about-grid{grid-template-columns:1fr;gap:2.5rem}
     .about-avatar-wrapper{justify-content:flex-start}
     .contact-grid{grid-template-columns:1fr;gap:2.5rem}
-    .skills-categories{grid-template-columns:repeat(2,1fr)}
+    .skills-grid{grid-template-columns:repeat(2,1fr)}
     .projects-grid{grid-template-columns:repeat(2,1fr)}
   }
- 
-  /* Tablet portrait 768px */
   @media(max-width:768px){
     .nav-links{display:none}
     .hamburger{display:flex}
     .mobile-menu{display:flex}
     .hero-scroll{display:none}
-    .skills-categories{grid-template-columns:repeat(2,1fr)}
+    .skills-grid{grid-template-columns:repeat(2,1fr)}
     .projects-grid{grid-template-columns:1fr}
     footer .footer-inner{justify-content:center;text-align:center}
+    .exp-timeline::before{left:10px}
+    .exp-item{grid-template-columns:22px 1fr;gap:1rem}
+    .exp-dot{width:11px;height:11px}
   }
- 
-  /* Mobile 600px */
   @media(max-width:600px){
-    .skills-categories{grid-template-columns:1fr}
+    .skills-grid{grid-template-columns:1fr}
     .about-grid{grid-template-columns:1fr}
     .about-avatar-wrapper{justify-content:flex-start}
     .avatar-box{width:120px;height:130px}
   }
- 
-  /* Small mobile 480px */
   @media(max-width:480px){
     :root{--section-px:1.1rem}
     .hero-btns{flex-direction:column}
@@ -343,12 +408,10 @@
     .contact-cta{flex-direction:column}
     .contact-cta .btn{justify-content:center;text-align:center;width:100%}
     .contact-link-value{font-size:.78rem}
-    /* Prevent iOS zoom on form focus */
     .form-group input,.form-group textarea,.form-group select{font-size:16px}
     .hero-name{font-size:clamp(2.2rem,11vw,3.5rem)}
+    .exp-header{flex-direction:column;gap:.4rem}
   }
- 
-  /* Landscape phone */
   @media(max-height:500px) and (orientation:landscape){
     #hero{min-height:auto;padding-top:calc(var(--nav-h) + 1rem)}
     .hero-scroll{display:none}
@@ -360,6 +423,7 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
   <a href="#skills" onclick="closeMobile()">Skills</a>
   <a href="#projects" onclick="closeMobile()">Projects</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
@@ -371,6 +435,7 @@
     <a href="#hero" class="nav-logo">Praveen<span>_dev</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -433,44 +498,212 @@
   </div>
 </section>
  
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">02 / Experience</div>
+    <div class="section-title">Where I've Worked</div>
+    <div class="exp-timeline exp-stagger">
+ 
+      <!-- Internship 1 -->
+      <div class="exp-item">
+        <div class="exp-dot-col">
+          <div class="exp-dot"></div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Frontend Developer Intern</div>
+            <div class="exp-period">2024</div>
+          </div>
+          <div class="exp-company">Aruvai Institute of Learning</div>
+          <p class="exp-desc">
+            Built and maintained <strong>responsive web interfaces</strong> for the institute's learning platform.
+            Focused on clean UI implementation, cross-browser compatibility, and performance-optimised layouts
+            using <strong>HTML5, CSS3, and JavaScript</strong>.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">HTML5</span>
+            <span class="exp-tag">CSS3</span>
+            <span class="exp-tag">JavaScript</span>
+            <span class="exp-tag">Responsive Design</span>
+            <span class="exp-tag">Frontend</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Internship 2 -->
+      <div class="exp-item">
+        <div class="exp-dot-col">
+          <div class="exp-dot"></div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Java Programming Intern</div>
+            <div class="exp-period">2024</div>
+          </div>
+          <div class="exp-company">CodeAlpha</div>
+          <p class="exp-desc">
+            Developed <strong>Java-based applications</strong> and strengthened core programming fundamentals
+            including OOP principles, data structures, and algorithm design. Delivered
+            working projects demonstrating proficiency in <strong>Java SE</strong> and problem-solving under real-world constraints.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">Java</span>
+            <span class="exp-tag">OOP</span>
+            <span class="exp-tag">Data Structures</span>
+            <span class="exp-tag">Algorithms</span>
+            <span class="exp-tag">Java SE</span>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
-    <div class="section-label">02 / Skills</div>
+    <div class="section-label">03 / Skills</div>
     <div class="section-title">Technical Stack</div>
-    <div class="skills-categories stagger">
+    <div class="skills-grid stagger">
+ 
+      <!-- Languages -->
       <div class="skill-category">
-        <div class="skill-cat-header"><div class="skill-cat-icon">💻</div><div class="skill-cat-name">Languages</div></div>
-        <div class="skill-bars">
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>JavaScript</span><span>90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>Kotlin</span><span>80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>Python</span><span>70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">💻</div>
+          <div class="skill-cat-name">Languages</div>
+        </div>
+        <div class="skill-badges">
+          <div class="skill-badge">
+            <span class="skill-badge-name">JavaScript</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">Kotlin</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">Java</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">Python</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
         </div>
       </div>
+ 
+      <!-- Frontend -->
       <div class="skill-category">
-        <div class="skill-cat-header"><div class="skill-cat-icon">🌐</div><div class="skill-cat-name">Frontend</div></div>
-        <div class="skill-bars">
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>HTML5 / CSS3</span><span>92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div></div>
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>React.js</span><span>78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div></div>
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>UI Design (XML)</span><span>75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div></div>
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">🌐</div>
+          <div class="skill-cat-name">Frontend</div>
+        </div>
+        <div class="skill-badges">
+          <div class="skill-badge">
+            <span class="skill-badge-name">HTML5 / CSS3</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">React.js</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">UI Design (XML)</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">Responsive Design</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip"></div>
+            </div>
+          </div>
         </div>
       </div>
+ 
+      <!-- Backend -->
       <div class="skill-category">
-        <div class="skill-cat-header"><div class="skill-cat-icon">⚙️</div><div class="skill-cat-name">Backend</div></div>
-        <div class="skill-bars">
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>Node.js</span><span>85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>REST API</span><span>82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div></div>
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>MongoDB / Firebase</span><span>76%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="76"></div></div></div>
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">⚙️</div>
+          <div class="skill-cat-name">Backend</div>
+        </div>
+        <div class="skill-badges">
+          <div class="skill-badge">
+            <span class="skill-badge-name">Node.js</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">Express.js</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">REST APIs</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">MongoDB / Firebase</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
         </div>
       </div>
+ 
+      <!-- DevOps & Tools -->
       <div class="skill-category">
-        <div class="skill-cat-header"><div class="skill-cat-icon">🚀</div><div class="skill-cat-name">DevOps &amp; Tools</div></div>
-        <div class="skill-bars">
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>Git &amp; GitHub</span><span>88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div></div>
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>Docker</span><span>68%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="68"></div></div></div>
-          <div class="skill-bar-item"><div class="skill-bar-label"><span>Jenkins / Maven</span><span>65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">🚀</div>
+          <div class="skill-cat-name">DevOps &amp; Tools</div>
+        </div>
+        <div class="skill-badges">
+          <div class="skill-badge">
+            <span class="skill-badge-name">Git &amp; GitHub</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">Docker</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">Jenkins / Maven</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-badge">
+            <span class="skill-badge-name">GitHub Actions</span>
+            <div class="skill-level">
+              <div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip filled high"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
         </div>
       </div>
+ 
     </div>
   </div>
 </section>
@@ -478,15 +711,15 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
-    <div class="section-label">03 / Projects</div>
+    <div class="section-label">04 / Projects</div>
     <div class="section-title">What I've Built</div>
     <div class="projects-grid stagger">
       <div class="project-card">
         <div class="project-card-top">
           <div class="project-icon"></div>
           <div class="project-links">
-            <a href="https://finance-tracker-vf95.onrender.com" target="_blank" rel="noopener" class="project-link-btn" title="Live Demo">↗</a>
-            <a href="https://github.com/Praveentheoplus/finance_tracker" target="_blank" rel="noopener" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://finance-tracker-vf95.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Live Demo">↗</a>
+            <a href="https://github.com/Praveentheoplus/finance_tracker" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
           </div>
         </div>
         <div class="project-body">
@@ -499,7 +732,7 @@
         <div class="project-card-top">
           <div class="project-icon"></div>
           <div class="project-links">
-            <a href="https://github.com/Praveentheoplus/porsche_webpage_basic" target="_blank" rel="noopener" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://github.com/Praveentheoplus/porsche_webpage_basic" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
           </div>
         </div>
         <div class="project-body">
@@ -509,7 +742,10 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-card-top"><div class="project-icon"></div><div class="project-links"></div></div>
+        <div class="project-card-top">
+          <div class="project-icon"></div>
+          <div class="project-links"></div>
+        </div>
         <div class="project-body">
           <div class="project-title">CAT – App Launcher &amp; Notes</div>
           <div class="project-desc">Android app for quick app launching and note-taking. Tracks app history and includes a productivity-focused notes section.</div>
@@ -520,7 +756,7 @@
         <div class="project-card-top">
           <div class="project-icon"></div>
           <div class="project-links">
-            <a href="https://github.com/Praveentheoplus/cicd-project" target="_blank" rel="noopener" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://github.com/Praveentheoplus/cicd-project" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
           </div>
         </div>
         <div class="project-body">
@@ -533,8 +769,8 @@
         <div class="project-card-top">
           <div class="project-icon"></div>
           <div class="project-links">
-            <a href="https://cloud-storage-app-production-bf80.up.railway.app/" target="_blank" rel="noopener" class="project-link-btn" title="Live Demo">↗</a>
-            <a href="https://github.com/Praveentheoplus/cloud-storage-app" target="_blank" rel="noopener" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://cloud-storage-app-production-bf80.up.railway.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Live Demo">↗</a>
+            <a href="https://github.com/Praveentheoplus/cloud-storage-app" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="GitHub"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
           </div>
         </div>
         <div class="project-body">
@@ -550,7 +786,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <div class="section-label">04 / Contact</div>
+    <div class="section-label">05 / Contact</div>
     <div class="section-title">Let's Connect</div>
     <div class="contact-grid reveal">
       <div>
@@ -561,12 +797,12 @@
             <div class="contact-link-info"><div class="contact-link-label">Email</div><div class="contact-link-value">praveensofficial7@gmail.com</div></div>
             <div class="contact-link-arrow">→</div>
           </a>
-          <a href="https://github.com/Praveentheoplus" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://github.com/Praveentheoplus" target="_blank" rel="noopener noreferrer" class="contact-link">
             <div class="contact-link-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
             <div class="contact-link-info"><div class="contact-link-label">GitHub</div><div class="contact-link-value">github.com/Praveentheoplus</div></div>
             <div class="contact-link-arrow">→</div>
           </a>
-          <a href="https://www.linkedin.com/in/praveen-t-4261a4292" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://www.linkedin.com/in/praveen-t-4261a4292" target="_blank" rel="noopener noreferrer" class="contact-link">
             <div class="contact-link-icon">💼</div>
             <div class="contact-link-info"><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">linkedin.com/in/praveen-t-4261a4292</div></div>
             <div class="contact-link-arrow">→</div>
@@ -574,11 +810,11 @@
         </div>
         <div class="contact-cta">
           <a href="mailto:praveensofficial7@gmail.com" class="btn btn-primary">Hire Me →</a>
-          <a href="https://github.com/Praveentheoplus" target="_blank" rel="noopener" class="btn btn-secondary">View GitHub</a>
+          <a href="https://github.com/Praveentheoplus" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View GitHub</a>
         </div>
       </div>
  
-      <!-- AI Contact Form -->
+      <!-- Contact Form -->
       <div class="contact-form-wrap">
         <div class="form-title">Send a Message</div>
         <div class="form-group">
@@ -606,10 +842,6 @@
         </div>
         <button class="btn btn-primary form-submit" id="formSubmitBtn" onclick="handleFormSubmit()">Send Message →</button>
         <div class="form-status" id="formStatus"></div>
-        <div class="ai-reply" id="aiReply">
-          <div class="ai-reply-label">AI-Powered Instant Reply</div>
-          <div class="ai-reply-text" id="aiReplyText"></div>
-        </div>
       </div>
     </div>
   </div>
@@ -643,19 +875,10 @@ const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
-      e.target.querySelectorAll('.skill-bar-fill').forEach(b => { b.style.width = b.dataset.width + '%'; });
     }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.reveal, .stagger').forEach(el => revealObserver.observe(el));
- 
-/* Individual skill bars */
-document.querySelectorAll('.skill-bar-fill').forEach(bar => {
-  const p = bar.closest('.skill-category');
-  if (!p) return;
-  const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { bar.style.width = bar.dataset.width + '%'; io.disconnect(); } }, { threshold: 0.2 });
-  io.observe(p);
-});
+document.querySelectorAll('.reveal, .stagger, .exp-stagger').forEach(el => revealObserver.observe(el));
  
 /* ── ACTIVE NAV ── */
 const navLinks = document.querySelectorAll('.nav-links a');
@@ -670,9 +893,7 @@ const navObs = new IntersectionObserver(entries => {
 }, { rootMargin: '-40% 0px -55% 0px' });
 document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
  
-/* ── AI CONTACT FORM ── */
-/* ── IMPORTANT: Replace this URL with your actual Render backend URL after deploying ──
-   Example: const BACKEND_URL = 'https://praveen-contact-backend.onrender.com';        */
+/* ── CONTACT FORM ── */
 const BACKEND_URL = 'https://praveen-contact-backend.onrender.com';
  
 async function handleFormSubmit() {
@@ -682,9 +903,7 @@ async function handleFormSubmit() {
   const message = document.getElementById('fmsg').value.trim();
   const btn     = document.getElementById('formSubmitBtn');
   const status  = document.getElementById('formStatus');
-  const aiBox   = document.getElementById('aiReply');
  
-  // Validate
   if (!name || !email || !message) {
     status.className = 'form-status error';
     status.textContent = '⚠ Please fill in your name, email, and message.';
@@ -699,12 +918,10 @@ async function handleFormSubmit() {
   const reasonMap = { job:'Job / Internship Opportunity', freelance:'Freelance Project', collab:'Collaboration', feedback:'Project Feedback', other:'Other' };
   const reason = reasonMap[type] || 'General Inquiry';
  
-  // Loading state
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Sending...';
   status.className = 'form-status loading';
   status.textContent = '✦ Sending your message...';
-  aiBox.classList.remove('visible');
  
   try {
     const res = await fetch(`${BACKEND_URL}/contact`, {
@@ -712,13 +929,10 @@ async function handleFormSubmit() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, reason, message }),
     });
- 
     const data = await res.json();
- 
     if (res.ok && data.success) {
       status.className = 'form-status success';
       status.textContent = `✓ Message sent! A confirmation email has been sent to ${email}.`;
-      // Clear form
       document.getElementById('fname').value = '';
       document.getElementById('femail').value = '';
       document.getElementById('ftype').value = '';
@@ -736,7 +950,6 @@ async function handleFormSubmit() {
   btn.onclick = () => {
     status.style.display = 'none';
     status.className = 'form-status';
-    aiBox.classList.remove('visible');
     btn.innerHTML = 'Send Message →';
     btn.onclick = handleFormSubmit;
   };
@@ -744,3 +957,4 @@ async function handleFormSubmit() {
 </script>
 </body>
 </html>
+ 
